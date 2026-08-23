@@ -4604,36 +4604,36 @@ StreeHub_MODULES[StreeHub["3e"]] = {
 					}
 
 					local newButton = Templates.DialogElements.DialogButton:Clone()
-					local originalSize = newButton.Button.Size
+local btn = newButton:FindFirstChild("Button")
+if not btn then
+	warn("Template DialogButton tidak punya child 'Button': ", newButton:GetFullName())
+	continue
+end
+local originalSize = btn.Size
+btn.Label.Text = buttonData.Title
 
-					newButton.Button.Label.Text = buttonData.Title
+btn.MouseButton1Click:Connect(function()
+	buttonData.Callback()
+	local tw = Tween(newDialogDarkOverlay, {Transparency = 1}, TweenConfigs.Global)
+	newDialog:Destroy()
+	tw.Completed:Wait()
+	newDialogDarkOverlay:Destroy()
+end)
 
-					newButton.Button.MouseButton1Click:Connect(function()
-						buttonData.Callback()
+btn.MouseButton1Down:Connect(function()
+	Tween(btn, {Size = originalSize - Dialog.PressDecreaseSize}, TweenConfigs.Global)
+end)
 
-						local tw = Tween(newDialogDarkOverlay, {Transparency = 1}, TweenConfigs.Global)
-						--local tw = Tween(newDialog, {Size = UDim2.fromOffset(0,0)}, TweenConfigs.PopupClose)
-						newDialog:Destroy()
-						tw.Completed:Wait()
-						newDialogDarkOverlay:Destroy()
+btn.MouseButton1Up:Connect(function()
+	Tween(btn, {Size = originalSize}, TweenConfigs.Global)
+end)
 
-					end)
+btn.MouseLeave:Connect(function()
+	Tween(btn, {Size = originalSize}, TweenConfigs.Global)
+end)
 
-					newButton.Button.MouseButton1Down:Connect(function()
-						Tween(newButton.Button, {Size = originalSize - Dialog.PressDecreaseSize}, TweenConfigs.Global)
-					end)
-
-					newButton.Button.MouseButton1Up:Connect(function()
-						Tween(newButton.Button, {Size = originalSize}, TweenConfigs.Global)
-					end)
-
-					newButton.Button.MouseLeave:Connect(function()
-						Tween(newButton.Button, {Size = originalSize}, TweenConfigs.Global)
-					end)
-
-					newButton.Parent = newDialog.Buttons
-					newButton.Visible = true
-				end
+newButton.Parent = newDialog.Buttons
+newButton.Visible = true
 
 				--Tween(newDialog, {Size = Dialog.Size}, TweenConfigs.PopupOpen)
 				Tween(newDialogDarkOverlay, {Transparency = 0.6}, TweenConfigs.Global)
