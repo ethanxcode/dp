@@ -201,16 +201,16 @@ local Library = { } do
     Library.WindowHeight = 540
 
     Library.Theme = {
-        Background = Color3.fromRGB(20, 22, 26),
-        Section = Color3.fromRGB(23, 26, 30),
-        Element = Color3.fromRGB(27, 31, 35),
-        Light = Color3.fromRGB(34, 39, 44),
-        Hover = Color3.fromRGB(38, 43, 49),
-        Line = Color3.fromRGB(27, 31, 35),
-        Text = Color3.fromRGB(255, 255, 255),
-        DimText = Color3.fromRGB(120, 120, 120),
-        DimIcon = Color3.fromRGB(120, 120, 120),
-        Accent = Color3.fromRGB(179, 165, 255)
+        Background = Color3.fromRGB(16, 20, 30),
+        Section = Color3.fromRGB(20, 25, 37),
+        Element = Color3.fromRGB(25, 31, 46),
+        Light = Color3.fromRGB(33, 41, 60),
+        Hover = Color3.fromRGB(39, 48, 70),
+        Line = Color3.fromRGB(25, 31, 46),
+        Text = Color3.fromRGB(233, 239, 250),
+        DimText = Color3.fromRGB(110, 120, 142),
+        DimIcon = Color3.fromRGB(110, 120, 142),
+        Accent = Color3.fromRGB(96, 150, 255)
     }
 
     Library.AccentPresets = {
@@ -221,34 +221,6 @@ local Library = { } do
         Color3.fromRGB(245, 130, 120)
     }
 
-    local function MakePreset(Name, Colors)
-        local Preset = {
-            Name = Name,
-            Swatch = Colors.Accent
-        }
-
-        for Key, Value in Colors do
-            Preset[Key] = Value
-        end
-
-        return Preset
-    end
-
-    Library.ThemePresets = {
-        MakePreset("Azure", Library.Theme),
-        MakePreset("Azure", {
-            Background = Color3.fromRGB(16, 20, 30),
-            Section = Color3.fromRGB(20, 25, 37),
-            Element = Color3.fromRGB(25, 31, 46),
-            Light = Color3.fromRGB(33, 41, 60),
-            Hover = Color3.fromRGB(39, 48, 70),
-            Line = Color3.fromRGB(25, 31, 46),
-            Text = Color3.fromRGB(233, 239, 250),
-            DimText = Color3.fromRGB(110, 120, 142),
-            DimIcon = Color3.fromRGB(110, 120, 142),
-            Accent = Color3.fromRGB(96, 150, 255)
-        })
-    }
 
     Library.ThemeKeys = {
         "Background",
