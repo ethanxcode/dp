@@ -3739,14 +3739,17 @@ local Library = { } do
             and MeasureText(Section.Description, 13, DescriptionW, UiFont)
             or Vector2.new(0, 0)
 
-        Section.HeaderHeight = Section.Description ~= ""
-            and (34 + math.ceil(DescriptionBounds.Y))
-            or 26
+        local HeaderHeight = Section.Description ~= ""
+            and (45 + math.ceil(DescriptionBounds.Y))
+            or 25
 
         Items.Header = MakeFrame({
             Parent = Items.Holder.Instance,
             Pos = UDim2.fromOffset(0, 1),
-            Size = UDim2.fromOffset(HeaderW, 25),
+            Size = UDim2.fromOffset(
+                math.max(HeaderW, DescriptionW + 26),
+                HeaderHeight
+            ),
             Color = "Section",
             Round = 10,
             Z = 3
