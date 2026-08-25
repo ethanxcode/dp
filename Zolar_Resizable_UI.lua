@@ -235,7 +235,7 @@ local Library = { } do
     end
 
     Library.ThemePresets = {
-        MakePreset("Default", Library.Theme),
+        MakePreset("Azure", Library.Theme),
         MakePreset("Azure", {
             Background = Color3.fromRGB(16, 20, 30),
             Section = Color3.fromRGB(20, 25, 37),
@@ -247,42 +247,6 @@ local Library = { } do
             DimText = Color3.fromRGB(110, 120, 142),
             DimIcon = Color3.fromRGB(110, 120, 142),
             Accent = Color3.fromRGB(96, 150, 255)
-        }),
-        MakePreset("Emerald", {
-            Background = Color3.fromRGB(14, 24, 20),
-            Section = Color3.fromRGB(18, 30, 25),
-            Element = Color3.fromRGB(23, 37, 31),
-            Light = Color3.fromRGB(30, 48, 40),
-            Hover = Color3.fromRGB(36, 56, 47),
-            Line = Color3.fromRGB(23, 37, 31),
-            Text = Color3.fromRGB(232, 244, 238),
-            DimText = Color3.fromRGB(106, 128, 118),
-            DimIcon = Color3.fromRGB(106, 128, 118),
-            Accent = Color3.fromRGB(76, 214, 148)
-        }),
-        MakePreset("Ocean", {
-            Background = Color3.fromRGB(14, 23, 28),
-            Section = Color3.fromRGB(18, 28, 34),
-            Element = Color3.fromRGB(23, 35, 42),
-            Light = Color3.fromRGB(30, 45, 54),
-            Hover = Color3.fromRGB(36, 53, 63),
-            Line = Color3.fromRGB(23, 35, 42),
-            Text = Color3.fromRGB(230, 240, 244),
-            DimText = Color3.fromRGB(104, 122, 132),
-            DimIcon = Color3.fromRGB(104, 122, 132),
-            Accent = Color3.fromRGB(72, 200, 214)
-        }),
-        MakePreset("Rose", {
-            Background = Color3.fromRGB(26, 17, 21),
-            Section = Color3.fromRGB(32, 21, 26),
-            Element = Color3.fromRGB(39, 26, 32),
-            Light = Color3.fromRGB(50, 33, 41),
-            Hover = Color3.fromRGB(58, 39, 48),
-            Line = Color3.fromRGB(39, 26, 32),
-            Text = Color3.fromRGB(245, 234, 238),
-            DimText = Color3.fromRGB(132, 110, 118),
-            DimIcon = Color3.fromRGB(132, 110, 118),
-            Accent = Color3.fromRGB(240, 118, 150)
         })
     }
 
