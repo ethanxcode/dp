@@ -3758,7 +3758,7 @@ local Library = { } do
         Items.HeaderFill = MakeFrame({
             Parent = Items.Header.Instance,
             Pos = UDim2.fromOffset(0, 15),
-            Size = UDim2.fromOffset(HeaderW, 10),
+            Size = UDim2.fromOffset(HeaderW, HeaderHeight - 15),
             Color = "Section",
             Z = 3
         })
