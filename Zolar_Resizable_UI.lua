@@ -125,6 +125,8 @@ local Library = { } do
         IconPack.SetIconsType("lucide")
     end)
 
+    local discord = "rbxassetid://74223250481987"
+
     local function ResolveIcon(Icon)
         if type(Icon) == "number" then
             return "rbxassetid://" .. Icon
