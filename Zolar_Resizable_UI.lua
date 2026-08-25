@@ -155,10 +155,6 @@ local Library = { } do
         return "rbxassetid://0"
     end
 
-    local CustomIcons = {
-    discord = "https://img.icons8.com/ios/50/discord-logo--v1.png"
-    }
-
     local function ToVector2(Value)
         if typeof(Value) == "Vector2" then
             return Value
