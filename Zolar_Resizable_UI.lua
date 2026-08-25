@@ -1,5 +1,5 @@
-if getgenv().Zolar and getgenv().Zolar.Unload then
-    getgenv().Zolar:Unload()
+if getgenv().Zora and getgenv().Zora.Unload then
+    getgenv().Zora:Unload()
 end
 
 local Library = { } do
@@ -26,9 +26,9 @@ local Library = { } do
         return cloneref(game:GetService("CoreGui"))
     end
 
-    Library.Directory = "Zolar"
-    Library.ConfigFolder = "Zolar/Configs"
-    Library.AssetsFolder = "Zolar/Assets"
+    Library.Directory = "Zora"
+    Library.ConfigFolder = "Zora/Configs"
+    Library.AssetsFolder = "Zora/Assets"
 
     if isfolder then
         for _, Folder in { Library.Directory, Library.ConfigFolder, Library.AssetsFolder } do
@@ -813,7 +813,7 @@ local Library = { } do
             if Root then Root.Instance:Destroy() end
         end
 
-        getgenv().Zolar = nil
+        getgenv().Zora = nil
     end
 
     Library.Holder = Library:Create("ScreenGui", {
@@ -2279,7 +2279,7 @@ local Library = { } do
         local MaxSubW = W - 120
 
         local Window = {
-            Name = Params.Name or "ZOLAR",
+            Name = Params.Name or "Zora",
             Icon = Params.Icon or "layers",
             IsOpen = true,
             Tabs = { },
@@ -6369,7 +6369,7 @@ local Library = { } do
         end
     end)
 
-    getgenv().Zolar = Library
+    getgenv().Zora = Library
 end
 
 return Library
