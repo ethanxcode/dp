@@ -3773,11 +3773,11 @@ local Library = { } do
 
         if Section.Description ~= "" then
             Items.Description = MakeText({
-                Parent = Items.Holder.Instance,
+                Parent = Items.Header.Instance,
                 Text = Section.Description,
                 TextSize = 13,
-                Pos = UDim2.fromOffset(14, 29),
-                Size = UDim2.fromOffset(DescriptionW, DescriptionBounds.Y),
+                Pos = UDim2.fromOffset(13, 23),
+                Size = UDim2.fromOffset(HeaderTextW + 80, math.max(16, math.ceil(DescriptionBounds.Y))),
                 Color = "DimText",
                 Wrap = true,
                 Z = 4
