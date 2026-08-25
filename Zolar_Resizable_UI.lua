@@ -17,6 +17,7 @@ local Library = { } do
     local StatsService = cloneref(game:GetService("Stats"))
     local MarketplaceService = cloneref(game:GetService("MarketplaceService"))
     local ContentProvider = cloneref(game:GetService("ContentProvider"))
+    local discord = "rbxassetid://95232390833568"
 
     local LocalPlayer = Players.LocalPlayer
     local GuiInset = GuiService:GetGuiInset().Y
@@ -124,8 +125,6 @@ local Library = { } do
         IconPack = loadstring(game:HttpGetAsync(Url))()
         IconPack.SetIconsType("lucide")
     end)
-
-    local discord = "rbxassetid://95232390833568"
 
     local function ResolveIcon(Icon)
         if type(Icon) == "number" then
