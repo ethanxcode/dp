@@ -2,6 +2,10 @@ if getgenv().Zora and getgenv().Zora.Unload then
     getgenv().Zora:Unload()
 end
 
+local CustomIcons = {
+     discord = "rbxassetid://95232390833568"
+}
+
 local Library = { } do
     local cloneref = cloneref or function(Object)
         return Object
