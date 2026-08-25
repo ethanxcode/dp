@@ -142,27 +142,6 @@ local Library = { } do
             return "rbxassetid://" .. Icon
         end
 
-        if string.match(Icon, "^https?://") then
-            local Hash = tostring(#Icon) .. "_" .. string.gsub(Icon, "[^%w]", "")
-            local AssetPath = Library.AssetsFolder .. "/Icon_" .. Hash .. ".png"
-
-            if isfile and not isfile(AssetPath) then
-                pcall(function()
-                    local Body = game:HttpGet(Icon)
-                    if Body and #Body > 0 then
-                        writefile(AssetPath, Body)
-                    end
-                end)
-            end
-
-            if isfile and isfile(AssetPath) and getcustomasset then
-                local Ok, Asset = pcall(getcustomasset, AssetPath)
-                if Ok and Asset then
-                    return Asset
-                end
-            end
-        end
-
         if IconPack then
             local Ok, Result = pcall(function()
                 return IconPack.GetIcon(Icon)
@@ -2365,7 +2344,7 @@ local Library = { } do
 
         local Window = {
             Name = Params.Name or "ZOLAR",
-            Icon = Params.Icon or "https://cdn-icons-png.flaticon.com/512/10413/10413820.png",
+            Icon = Params.Icon or "layers",
             IsOpen = true,
             Tabs = { },
             Current = nil,
@@ -2550,31 +2529,6 @@ local Library = { } do
             Round = 20,
             Z = 3
         })
-
-        Items.Close = MakeImage({
-            Parent = Items.TopBar.Instance,
-            Icon = "https://cdn-icons-png.flaticon.com/512/2976/2976286.png",
-            Anchor = Vector2.new(1, 0),
-            Pos = UDim2.new(1, -34, 0, 16),
-            Size = UDim2.fromOffset(18, 18),
-            Color = "DimText",
-            Fit = true,
-            Z = 6
-        })
-
-        Items.CloseHit = MakeButton({
-            Parent = Items.TopBar.Instance,
-            Anchor = Vector2.new(1, 0),
-            Pos = UDim2.new(1, -8, 0, 8),
-            Size = UDim2.fromOffset(30, 34),
-            Z = 7
-        })
-
-        Items.CloseHit:OnHover(function()
-            Items.Close:Tween({ ImageColor3 = Library.Theme.Text })
-        end, function()
-            Items.Close:Tween({ ImageColor3 = Library.Theme.DimText })
-        end)
 
         Items.ProfileHit = MakeButton({
             Parent = Items.TopBar.Instance,
@@ -3021,10 +2975,6 @@ local Library = { } do
 
         Window.Profile = Profile
 
-        Items.CloseHit:Connect("MouseButton1Down", function()
-            Window:SetOpen(false)
-        end)
-
         Items.ProfileHit:Connect("MouseButton1Down", function()
             Profile:SetOpen(not Profile.IsOpen)
         end)
@@ -3036,62 +2986,6 @@ local Library = { } do
             Clip = true,
             Z = 2
         })
-
-        local ResizeHit = MakeButton({
-            Parent = Items.Main.Instance,
-            Anchor = Vector2.new(1, 1),
-            Pos = UDim2.new(1, 0, 1, 0),
-            Size = UDim2.fromOffset(30, 30),
-            Z = 8
-        })
-
-        local ResizeGrab = false
-        local ResizeStartX
-        local ResizeStartScale
-
-        ResizeHit:OnHover(function()
-            ResizeHit.Instance.BackgroundTransparency = 0.92
-            ResizeHit.Instance.BackgroundColor3 = Library.Theme.DimIcon
-        end, function()
-            ResizeHit.Instance.BackgroundTransparency = 1
-        end)
-
-        ResizeHit:Connect("InputBegan", function(Input)
-            local IsClick = Input.UserInputType == Enum.UserInputType.MouseButton1
-            local IsTouch = Input.UserInputType == Enum.UserInputType.Touch
-
-            if not IsClick and not IsTouch then return end
-
-            ResizeGrab = true
-            ResizeStartX = Input.Position.X
-            ResizeStartScale = Library.UserScale
-        end)
-
-        Library:Connect(UserInputService.InputChanged, function(Input)
-            local IsMove = Input.UserInputType == Enum.UserInputType.MouseMovement
-            local IsTouch = Input.UserInputType == Enum.UserInputType.Touch
-
-            if not (IsMove or IsTouch) or not ResizeGrab then return end
-
-            local DeltaX = Input.Position.X - ResizeStartX
-            local NewScale = math.clamp(
-                ResizeStartScale + DeltaX / Library.WindowWidth,
-                0.5,
-                1.75
-            )
-
-            Library.UserScale = NewScale
-            UpdateScale()
-        end)
-
-        Library:Connect(UserInputService.InputEnded, function(Input)
-            local IsClick = Input.UserInputType == Enum.UserInputType.MouseButton1
-            local IsTouch = Input.UserInputType == Enum.UserInputType.Touch
-
-            if (IsClick or IsTouch) and ResizeGrab then
-                ResizeGrab = false
-            end
-        end)
 
         Window.Items = Items
 
