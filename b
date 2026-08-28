@@ -2934,7 +2934,7 @@ local Library = { } do
 
         local TrafBar = MakeFrame({
             Parent = Items.Root.Instance,
-            Pos = UDim2.fromOffset(MainX + W - 70, -13),
+            Pos = UDim2.fromOffset(MainX + W - 71, -16),
             Size = UDim2.fromOffset(72, 26),
             Raw = Color3.fromRGB(13, 17, 32),
             Round = 10,
