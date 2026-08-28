@@ -2936,14 +2936,14 @@ local Library = { } do
             Parent = Items.Root.Instance,
             Pos = UDim2.fromOffset(MainX + W - 72, -28),
             Size = UDim2.fromOffset(80, 30),
-            Raw = Color3.fromRGB(13, 17, 32),
+            Raw = Color3.fromRGB(96, 150, 255),
             Round = 10,
             Z = 10
         })
 
         Library:Create("UIStroke", {
             Parent = TrafBar.Instance,
-            Color = "Accent",
+            Color = Color3.fromRGB(37, 45, 69),
             Thickness = 0.8
         })
 
