@@ -2949,7 +2949,7 @@ local Library = { } do
 
         local RedBtn = MakeFrame({
             Parent = TrafBar.Instance,
-            Pos = UDim2.fromOffset(4, 4),
+            Pos = UDim2.fromOffset(4, 6),
             Size = UDim2.fromOffset(13, 13),
             Raw = Color3.fromRGB(255, 95, 86),
             Round = 20,
@@ -2959,7 +2959,7 @@ local Library = { } do
 
         local YellowBtn = MakeFrame({
             Parent = TrafBar.Instance,
-            Pos = UDim2.fromOffset(29, 4),
+            Pos = UDim2.fromOffset(29, 6),
             Size = UDim2.fromOffset(13, 13),
             Raw = Color3.fromRGB(255, 189, 68),
             Round = 20,
@@ -2969,7 +2969,7 @@ local Library = { } do
 
         local GreenBtn = MakeFrame({
             Parent = TrafBar.Instance,
-            Pos = UDim2.fromOffset(54, 4),
+            Pos = UDim2.fromOffset(54, 6),
             Size = UDim2.fromOffset(13, 13),
             Raw = Color3.fromRGB(40, 205, 65),
             Round = 20,
